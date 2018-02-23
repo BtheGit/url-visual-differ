@@ -1,0 +1,15 @@
+{
+  "name": "screenshot-comparison",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "author": "Brendan Beltz",
+  "license": "ISC",
+  "dependencies": {
+    "looks-same": "^3.3.0",
+    "puppeteer": "^1.1.0"
+  }
+}
