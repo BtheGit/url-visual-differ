@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer');
 const looksSame = require('looks-same');
+const sanitizeFilename = require('sanitize-filename');
 const fs = require('fs');
 
 // Set up folder structure
@@ -12,9 +13,9 @@ const defaultSettings = {
     pathPartial: '/',
     basisPath: 'https://www.cancer.gov',
     altPath: 'localhost:3000',
-    outputPath: 'diff',
+    outputPath: 'page',
     tolerance: 5,
-    width: 1025,
+    widths: [320, 390, 391, 640, 641, 1024, 1025, 1441],
     height: 1, // using fullpage means this is irrelevant but width without height seems to throw in setViewport
     highlightColor: '#DD3300',
     fullPage: true,
@@ -29,7 +30,7 @@ const getScreenshot = async (url, page) => {
     return screenshot;
 }
 
-const diffTwoImages = async (page, {
+const diffTwoImages = async (page, width, {
     basisPath,
     altPath,
     pathPartial,
@@ -43,27 +44,46 @@ const diffTwoImages = async (page, {
     await looksSame.createDiff({
         reference: img1,
         current: img2,
-        diff: `output/${outputPath}.png`,
+        diff: `output/${outputPath}${width}.png`,
         highlightColor,
         tolerance
     }, (err) => {})    
 
 }
 
+const serializePromises = funcs =>
+  funcs.reduce((promise, func) =>
+    promise.then(result => func().then(Array.prototype.concat.bind(result))),
+    Promise.resolve([]))
+
 const createDiff = async (customSettings) => {
+    const convertPathToFilename = path => {
+        const newPath = path.replace(/\//g, '_');
+        const sanitized = sanitizeFilename(newPath);
+        return sanitized;
+    }
+    if(customSettings.pathPartial && !customSettings.outputPath) {
+        customSettings.outputPath = convertPathToFilename(customSettings.pathPartial);
+    }
     const options = Object.assign({}, defaultSettings, customSettings);
     const {
-        width,
+        widths,
         height
     } = options;
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    await page.setViewport({
-        width,
-        height
+
+
+    const promises = widths.map(width => async () => {
+        await page.setViewport({
+            width,
+            height
+        })
+        await diffTwoImages(page, width, options)
     })
 
-    await diffTwoImages(page, options);
+    await serializePromises(promises);
+
 
     await browser.close();
 }
