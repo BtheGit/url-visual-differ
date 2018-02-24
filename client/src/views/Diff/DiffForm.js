@@ -12,8 +12,8 @@ const DiffForm = ({ handleSubmit }) => (
         <Field name="basisRoot" component="input" type="text" />
       </div>
       <div>
-        <label htmlFor="altRoot">Alt Root</label>
-        <Field name="altRoot" component="input" type="text" />
+        <label htmlFor="comparisonRoot">Comparison Root</label>
+        <Field name="comparisonRoot" component="input" type="text" />
       </div>
       <button type="submit">Submit</button>
     </form>

@@ -4,9 +4,12 @@ import DiffDisplay from './DiffDisplay';
 
 class Diff extends React.Component {
     handleSubmit = formData => {
-        fetch('/api', {
+        fetch('/api/diff', {
             body: JSON.stringify(formData),
-            method: 'POST'
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            }
         })
     }
     render() {
