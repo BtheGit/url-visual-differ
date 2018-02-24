@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server"
+    "client": "cd client && yarn start",
+    "server": "node server",
+    "start": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "author": "Brendan Beltz",
   "license": "ISC",
