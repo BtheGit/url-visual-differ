@@ -2,7 +2,8 @@ const router = require('express').Router();
 const diffPage = require('../lib/diff');
 
 router.post('/diff', async (req,res) => {
-    // await diffPage(req.body);
+    const diffResults = await diffPage(req.body);
+    console.log(diffResults)
 
 
     res.setHeader('Content-Type', 'application/json');
