@@ -1,9 +1,9 @@
 import { 
-    UPDATE_REQUEST_VALUE
+    UPDATE_DIFF_RESULTS
 } from './types';
 
 const initialState = {
-    requestValue: null
+    results: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -11,10 +11,7 @@ const reducer = (state = initialState, action) => {
         case UPDATE_REQUEST_VALUE:
             return {
                 ...state,
-                requestValue: {
-                    ...state.requestValue,
-                    ...action.payload
-                }
+                results: action.payload
             }
         default:
             return state;

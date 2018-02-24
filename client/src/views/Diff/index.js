@@ -1,6 +1,7 @@
 import React from 'react';
 import DiffForm from './DiffForm';
 import DiffDisplay from './DiffDisplay';
+import { updateDiffResults } from '../../store/diff/actions';
 
 class Diff extends React.Component {
     handleSubmit = formData => {
@@ -11,6 +12,10 @@ class Diff extends React.Component {
                 'content-type': 'application/json'
             }
         })
+        .then(res => res.json())
+        .then(res => {
+            updateDiffResults(res);
+        })
     }
     render() {
         return (
@@ -19,7 +24,9 @@ class Diff extends React.Component {
                 <DiffForm 
                     onSubmit={this.handleSubmit}
                 />
-                <DiffDisplay />
+                <DiffDisplay 
+                    
+                />
             </main>
         )
     }
