@@ -1,7 +1,9 @@
-const express = require('express');
-const app = express();
+const app = require('express')();
 const path = require('path');
 const PORT = 8080;
+const api = require('./api')
+
+app.use('/api', api);
 
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
