@@ -15,10 +15,12 @@ class Diff extends React.Component {
         })
         .then(res => res.json())
         .then(res => {
-            updateDiffResults(res);
+            this.props.updateDiffResults(res);
         })
     }
     render() {
+        const { results } = this.props;
+        if(results) console.log(results);
         return (
             <main>
                 <h1>Diff Page</h1>
@@ -26,7 +28,7 @@ class Diff extends React.Component {
                     onSubmit={this.handleSubmit}
                 />
                 <DiffDisplay 
-
+                    
                 />
             </main>
         )
@@ -34,7 +36,11 @@ class Diff extends React.Component {
 }
 
 const MapStateToProps = store => ({
-    results: store.form.
+    results: store.diff.results
 })
 
-export default Diff;
+const MapDispatchToProps = {
+    updateDiffResults
+};
+
+export default connect(MapStateToProps, MapDispatchToProps)(Diff);
