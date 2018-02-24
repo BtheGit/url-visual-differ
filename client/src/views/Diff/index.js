@@ -3,8 +3,11 @@ import DiffForm from './DiffForm';
 import DiffDisplay from './DiffDisplay';
 
 class Diff extends React.Component {
-    handleSubmit = e => {
-        console.log(e);
+    handleSubmit = formData => {
+        fetch('/api', {
+            body: JSON.stringify(formData),
+            method: 'POST'
+        })
     }
     render() {
         return (
