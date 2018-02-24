@@ -7,7 +7,7 @@ router.post('/diff', async (req,res) => {
 
 
     res.setHeader('Content-Type', 'application/json');
-    res.send(req.body)
+    res.send(diffResults)
 })
 
 module.exports = router;

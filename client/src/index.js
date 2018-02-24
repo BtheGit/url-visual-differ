@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
+import diff from './store/diff/reducer'
 import { reducer as reduxFormReducer } from 'redux-form';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import './index.css';
@@ -11,6 +12,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 const store = createStore(
     combineReducers({
+        diff,
         form: reduxFormReducer
     }),
     composeWithDevTools(

@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import DiffForm from './DiffForm';
 import DiffDisplay from './DiffDisplay';
 import { updateDiffResults } from '../../store/diff/actions';
@@ -25,11 +26,15 @@ class Diff extends React.Component {
                     onSubmit={this.handleSubmit}
                 />
                 <DiffDisplay 
-                    
+
                 />
             </main>
         )
     }
 }
+
+const MapStateToProps = store => ({
+    results: store.form.
+})
 
 export default Diff;
