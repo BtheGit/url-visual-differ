@@ -1,12 +1,13 @@
 .results-card {
     flex: 0 1 400px;
     height: 500px;
-    box-shadow: 0 10px 5px -8px rgba(0,0,0,0.5), 0 0 1px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 15px -12px rgba(0,0,0,0.5), 0 0 1px rgba(0,0,0,0.2);
     overflow-y: scroll;
     display: flex;
     flex-wrap: wrap;
-    margin: 15px;
+    margin: 15px 25px;
     padding: 0 5px;
+    background: white;
 }
 
 .results-card__title {
@@ -25,9 +26,11 @@
 
 .results-card__img img {
     width: 100%;
+    border: 1px solid rgba(0,0,0,0.2);
 }
 
 .results-card__text {
     width: 60%;
     height: auto;
+    padding-left: 5px;
 }

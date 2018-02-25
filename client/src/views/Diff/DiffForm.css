@@ -1,14 +1,16 @@
 .diff-form {
     display: grid;
-    grid-template-columns: 7fr 3fr;
+    grid-template-columns: 8fr 2fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
+    padding-bottom: 10px;
+    box-shadow: 0 8px 15px -4px rgba(0,0,0,0.3);
+    z-index: 1;
 }
 
 .diff-form__group {
     grid-column: 1 / 2;
     display: flex;
     flex-wrap: nowrap;
-    justify-content: center;
     margin: 5px;
 }
 
@@ -19,15 +21,13 @@
 .diff-form__label {
     font-weight: bold;
     margin-right: 10px;
-    width: 300px;
+    flex: 0 1 300px;
     text-align: right;
     padding: 6px 9px;
 }
 
 .diff-form__field {
     flex: 1;
-    min-width: 450px;
-    max-width: 850px;
     display: flex;
     flex-flow: column nowrap;
     position: relative;
