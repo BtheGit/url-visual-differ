@@ -1,2 +1,3 @@
 export const UPDATE_DIFF_RESULTS = 'UPDATE DIFF RESULTS';
 export const IS_FETCHING = 'IS FETCHING';
+export const HAS_ERROR = 'HAS ERROR';

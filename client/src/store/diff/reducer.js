@@ -1,12 +1,14 @@
 import { 
     UPDATE_DIFF_RESULTS,
     IS_FETCHING,
+    HAS_ERROR,
 } from './types';
 
 const initialState = {
     results: null,
-    isFetching: null,
-    hasError: null
+    isFetching: false,
+    hasError: false,
+    error: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -19,7 +21,13 @@ const reducer = (state = initialState, action) => {
         case IS_FETCHING:
             return {
                 ...state,
-                isFetching: action.payload
+                isFetching: action.status
+            }
+        case HAS_ERROR:
+            return {
+                ...state,
+                hasError: action.status,
+                error: action.error
             }
         default:
             return state;
