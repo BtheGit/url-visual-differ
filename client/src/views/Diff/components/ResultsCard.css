@@ -16,26 +16,14 @@
     background-color: turquoise;
 }
 
-.results-card__body {
+.results-card__img {
     padding: 5px;
     overflow-y: scroll;
     height: 430px;
     width: 100%;
-    display: flex;
-}
-
-.results-card__img {
-    width: 40%;
-    height: auto;
 }
 
 .results-card__img img {
     width: 100%;
     border: 1px solid rgba(0,0,0,0.2);
-}
-
-.results-card__text {
-    width: 60%;
-    height: auto;
-    padding-left: 5px;
 }
