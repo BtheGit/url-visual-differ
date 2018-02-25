@@ -1,0 +1,55 @@
+.diff-form {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.diff-form__group {
+    grid-column: 1 / 2;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: 5px;
+}
+
+.diff-form__group ::-webkit-input-placeholder {
+    color: rgba(0,0,0,0.2);
+}
+
+.diff-form__label {
+    font-weight: bold;
+    margin-right: 10px;
+    width: 300px;
+    text-align: right;
+    padding: 6px 9px;
+}
+
+.diff-form__field {
+    flex: 1;
+    min-width: 450px;
+    max-width: 850px;
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+}
+
+.diff-form__field * {
+    flex: 1;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+}
+
+.diff-form__submit {
+    grid-column: 2 / 3;
+    grid-row: 1 / span 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.diff-form__submit button {
+    height: 80%;
+    width: 80%;
+    max-width: 250px;
+}
