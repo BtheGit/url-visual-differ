@@ -1,4 +1,17 @@
 .diff-container {
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.diff-container header {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.diff-container header h1 {
+    
 }

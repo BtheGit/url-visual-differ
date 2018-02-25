@@ -2,30 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DiffForm from './DiffForm';
 import DiffPreview from './DiffPreview';
-import { updateDiffResults } from '../../store/diff/actions';
+import { requestDiff } from '../../store/diff/actions';
 import './index.css';
 
 class Diff extends React.Component {
-    handleSubmit = formData => {
-        fetch('/api/diff', {
-            body: JSON.stringify(formData),
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(res => {
-            this.props.updateDiffResults(res);
-        })
-    }
     render() {
         const { results } = this.props;
         return (
             <div className="diff-container">
-                <h1>Diff Page</h1>
+                <header>
+                    <h1>Compare a URL Across Servers</h1>
+                </header>
                 <DiffForm 
-                    onSubmit={this.handleSubmit}
+                    onSubmit={this.props.requestDiff}
                 />
                 <DiffPreview 
                     results={results}
@@ -40,7 +29,7 @@ const MapStateToProps = store => ({
 })
 
 const MapDispatchToProps = {
-    updateDiffResults
+    requestDiff
 };
 
 export default connect(MapStateToProps, MapDispatchToProps)(Diff);

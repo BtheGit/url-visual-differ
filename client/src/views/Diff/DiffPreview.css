@@ -1,5 +1,5 @@
 .diff-preview {
-    height: 100%;
+    flex: 1 0 400px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -8,6 +8,6 @@
 
 .diff-preview.results {
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
