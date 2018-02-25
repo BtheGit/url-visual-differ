@@ -29,15 +29,21 @@ const validateWidths = widths => {
 
 router.post('/diff', async (req,res) => {
     let userSettings = req.body;
+    res.setHeader('Content-Type', 'application/json');
 
     // Data sanitizing
     if(userSettings && userSettings.widths) {
         userSettings = Object.assign({}, userSettings, {widths: validateWidths(userSettings.widths)})
     }
-
-    const diffResults = await diffPage(userSettings);
-    res.setHeader('Content-Type', 'application/json');
-    res.send(diffResults)
+    try {
+        const diffResults = await diffPage(userSettings);
+        res.send(diffResults)
+    }
+    catch(err) {
+        console.log(err)
+        // Since this is for technical use, we'll send back the unrefactored error messages
+        res.send({err})
+    }
 })
 
 module.exports = router;
