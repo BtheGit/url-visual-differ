@@ -20,7 +20,6 @@ class Diff extends React.Component {
     }
     render() {
         const { results } = this.props;
-        if(results) console.log(results);
         return (
             <main>
                 <h1>Diff Page</h1>
@@ -28,7 +27,7 @@ class Diff extends React.Component {
                     onSubmit={this.handleSubmit}
                 />
                 <DiffDisplay 
-                    
+                    results={results}
                 />
             </main>
         )
