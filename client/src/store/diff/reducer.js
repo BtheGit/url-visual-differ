@@ -1,5 +1,6 @@
 import { 
-    UPDATE_DIFF_RESULTS
+    UPDATE_DIFF_RESULTS,
+    IS_FETCHING,
 } from './types';
 
 const initialState = {
@@ -14,6 +15,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 results: action.payload
+            }
+        case IS_FETCHING:
+            return {
+                ...state,
+                isFetching: action.payload
             }
         default:
             return state;

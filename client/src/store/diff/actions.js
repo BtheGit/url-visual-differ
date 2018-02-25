@@ -1,5 +1,6 @@
 import {
-    UPDATE_DIFF_RESULTS
+    UPDATE_DIFF_RESULTS,
+    IS_FETCHING
 } from './types';
 
 const updateDiffResults = (results) => ({
@@ -7,7 +8,13 @@ const updateDiffResults = (results) => ({
     payload: results
 })
 
+const setDiffFetchStatus = (status) => ({
+    type: IS_FETCHING,
+    payload: status
+})
+
 export const requestDiff = formData => dispatch => {
+    dispatch(setDiffFetchStatus(true));
     fetch('/api/diff', {
         body: JSON.stringify(formData),
         method: 'POST',
@@ -18,5 +25,10 @@ export const requestDiff = formData => dispatch => {
     .then(res => res.json())
     .then(res => {
         dispatch(updateDiffResults(res));
+        dispatch(setDiffFetchStatus(false));
+    })
+    .catch(err => {
+        // Temp
+        console.log(err)
     })
 }

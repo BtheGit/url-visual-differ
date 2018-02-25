@@ -7,7 +7,7 @@ import './index.css';
 
 class Diff extends React.Component {
     render() {
-        const { results } = this.props;
+        const { results, isFetching, hasError } = this.props;
         return (
             <div className="diff-container">
                 <header>
@@ -18,6 +18,8 @@ class Diff extends React.Component {
                 />
                 <DiffPreview 
                     results={results}
+                    isFetching={isFetching}
+                    hasError={hasError}
                 />
             </div>
         )
@@ -25,7 +27,9 @@ class Diff extends React.Component {
 }
 
 const MapStateToProps = store => ({
-    results: store.diff.results
+    results: store.diff.results,
+    isFetching: store.diff.isFetching,
+    hasError: store.diff.hasError
 })
 
 const MapDispatchToProps = {
