@@ -3,7 +3,9 @@ import {
 } from './types';
 
 const initialState = {
-    results: null
+    results: null,
+    isFetching: null,
+    hasError: null
 }
 
 const reducer = (state = initialState, action) => {

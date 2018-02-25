@@ -1,0 +1,13 @@
+.diff-preview {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.diff-preview.results {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+

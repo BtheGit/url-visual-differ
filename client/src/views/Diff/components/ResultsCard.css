@@ -1,0 +1,33 @@
+.results-card {
+    flex: 0 1 400px;
+    height: 500px;
+    box-shadow: 0 10px 5px -8px rgba(0,0,0,0.5), 0 0 1px rgba(0,0,0,0.2);
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+    padding: 0 5px;
+}
+
+.results-card__title {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.results-card__img {
+    width: 40%;
+    height: auto;
+}
+
+.results-card__img img {
+    width: 100%;
+}
+
+.results-card__text {
+    width: 60%;
+    height: auto;
+}
