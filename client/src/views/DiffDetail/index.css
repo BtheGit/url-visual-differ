@@ -1,0 +1,27 @@
+.diff-detail {
+
+}
+
+.diff-detail__settings {
+    height: 200px;
+    width: 100%;
+}
+
+.diff-detail__inner {
+    display: flex;
+}
+
+.diff-detail__img {
+    flex: 1;
+    margin: 0 5px;
+}
+
+.diff-detail__img-header {
+    
+}
+
+.diff-detail__img img {
+    border: 1px solid rgba(0,0,0,0.4);
+    object-fit: contain;
+    width: 100%;
+}

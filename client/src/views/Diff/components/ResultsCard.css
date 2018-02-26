@@ -6,6 +6,10 @@
     background: white;
 }
 
+.results-card a {
+    text-decoration: none;
+}
+
 .results-card__title {
     width: 100%;
     height: 70px;
@@ -13,7 +17,13 @@
     justify-content: center;
     align-items: center;
     font-size: 30px;
-    background-color: turquoise;
+    background-color: #82d0ff;
+    color: #505050;
+    transition: 150ms linear;
+}
+
+.results-card__title:hover {
+    background-color: #57bdfc;    
 }
 
 .results-card__img {
