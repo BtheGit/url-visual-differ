@@ -11,7 +11,7 @@ class Diff extends React.Component {
         return (
             <div className="diff-container">
                 <header>
-                    <h1>Compare a URL Across Servers</h1>
+                    <h1>URL Comparison Tool</h1>
                 </header>
                 <DiffForm 
                     onSubmit={this.props.requestDiff}
