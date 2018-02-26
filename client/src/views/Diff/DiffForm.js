@@ -2,7 +2,7 @@ import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import './DiffForm.css';
 
-const DiffForm = ({ handleSubmit }) => (
+const DiffForm = ({ handleSubmit, reset }) => (
     <form className="diff-form" onSubmit={ handleSubmit }>
 
       <div className="diff-form__group">
@@ -49,7 +49,23 @@ const DiffForm = ({ handleSubmit }) => (
           />
         </div>
       </div>
-      <div className="diff-form__submit">
+      <div className="diff-form__group">
+        <label htmlFor="tolerance" className="diff-form__label">Tolerance</label>
+        <div className="diff-form__field">
+          <Field 
+            name="tolerance" 
+            component="input" 
+            type="number" 
+            placeholder="5"
+            min="1"
+            max="50"
+          />
+        </div>
+      </div>
+      <div className="diff-form__button diff-form__reset">
+        <button type="button" onClick={reset}>Reset</button>
+      </div>
+      <div className="diff-form__button diff-form__submit">
         <button type="submit">Submit</button>
       </div>
     </form>

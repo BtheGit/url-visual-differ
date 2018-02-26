@@ -1,6 +1,6 @@
 .diff-form {
     display: grid;
-    grid-template-columns: 8fr 2fr;
+    grid-template-columns: 8fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     padding-bottom: 10px;
     box-shadow: 0 8px 15px -4px rgba(0,0,0,0.3);
@@ -40,23 +40,28 @@
     border: 1px solid #ccc;
 }
 
-.diff-form__submit {
+.diff-form__reset {
     grid-column: 2 / 3;
+    grid-row: 1 / span 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.diff-form__submit {
+    grid-column: 3 / 4;
     grid-row: 1 / span 4;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.diff-form__submit button {
+.diff-form__button button {
     position: relative;
     display: inline-block;
-    height: 150px;
-    width: 150px;
+    height: 90px;
+    width: 90px;
     border-radius: 50%;
-    color: #666666;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 0 1px #ebebeb inset, 0 0 0 2px rgba(255, 255, 255, 0.10) inset, 0 8px 0 0 #BEBEBE, 0 8px 8px 1px rgba(0, 0, 0, .2);
     top: -6px;
     border: 0;
     transition: all 40ms linear;
@@ -70,13 +75,34 @@
     vertical-align: middle;
     cursor: pointer;
     border: 1px solid transparent;
+    color: #666666;
+}
+
+.diff-form__button button:active {
+    color: #666666;
+    outline: none;
+    top: 2px;
+}
+
+.diff-form__reset button {
+    background-color: #f9a6a6;
+    box-shadow: 0 0 0 1px #e79d9d inset, 0 0 0 2px rgba(255, 255, 255, 0.10) inset, 0 8px 0 0 rgb(198, 132, 132), 0 8px 8px 1px rgba(0, 0, 0, .2);
+}
+
+.diff-form__reset button:active {
+    border-color: #aa6666;
+    box-shadow: 0 0 0 1px #ebebeb inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, .1);
+}
+
+.diff-form__submit button {
+    height: 150px;
+    width: 150px;
+    margin-right: 30px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 0 1px #ebebeb inset, 0 0 0 2px rgba(255, 255, 255, 0.10) inset, 0 8px 0 0 #BEBEBE, 0 8px 8px 1px rgba(0, 0, 0, .2);
 }
 
 .diff-form__submit button:active {
-    outline: none;
-    top: 2px;
     border-color: #adadad;
-    color: #666666;
     box-shadow: 0 0 0 1px #ebebeb inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 3px 1px rgba(0, 0, 0, .1);
-    background-color: #f9f9f9;
 }
