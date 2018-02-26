@@ -34,7 +34,7 @@ const DiffForm = ({ handleSubmit, reset }) => (
             name="comparisonRoot" 
             component="input" 
             type="text"
-            placeholder="localhost:3000"
+            placeholder="http://localhost:3000"
           />
         </div>
       </div>
@@ -57,8 +57,8 @@ const DiffForm = ({ handleSubmit, reset }) => (
             component="input" 
             type="number" 
             placeholder="5"
-            min="1"
-            max="50"
+            min="0"
+            max="99"
           />
         </div>
       </div>

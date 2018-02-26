@@ -9,6 +9,8 @@
 
 .diff-preview.results {
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
