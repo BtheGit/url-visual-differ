@@ -23,9 +23,12 @@ const DiffDetail = ({ match, results }) => {
     }, width) => {
         return (
             <div className="diff-detail__settings">
-                <h1>{pathPartial}</h1>
-                <h4>{width}{ Number(width) === Number(width) ? 'px' : null }</h4>
-                <h4>{tolerance}</h4>
+                <h1>Path</h1>
+                <p>{pathPartial}</p>
+                <h1>Size</h1>
+                <p>{width}{ Number(width) === Number(width) ? 'px' : null }</p>
+                <h1>Tolerance</h1>
+                <p>{tolerance}</p>
             </div>
         )
     }

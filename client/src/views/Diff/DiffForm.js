@@ -56,7 +56,7 @@ const DiffForm = ({ handleSubmit, reset }) => (
             name="tolerance" 
             component="input" 
             type="number" 
-            placeholder="5"
+            placeholder="10"
             min="0"
             max="99"
           />
