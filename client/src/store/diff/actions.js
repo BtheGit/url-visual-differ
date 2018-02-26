@@ -33,10 +33,11 @@ export const requestDiff = formData => dispatch => {
     .then(res => res.json())
     .then(res => {
         if(res.hasOwnProperty('err')){
-            console.log(res['err'])
             throw new Error(res['err']);
         }
-        dispatch(updateDiffResults(res));
+        if(res.length) {
+            dispatch(updateDiffResults(res));
+        }
     })
     .catch(err => {
         dispatch(setDiffErrorStatus(true, err.message))

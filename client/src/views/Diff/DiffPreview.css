@@ -1,10 +1,12 @@
 .diff-preview {
-    flex: 1 0 400px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #e0eafc, #cfdef3); 
+}
+
+.diff-preview.initial, .diff-preview.error {
+    height: 400px;
 }
 
 .diff-preview.results {
