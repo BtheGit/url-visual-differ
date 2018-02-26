@@ -45,7 +45,7 @@ const DiffForm = ({ handleSubmit, reset }) => (
             name="widths" 
             component="input" 
             type="text" 
-            placeholder="320, 390, Nexus 7, iPhone 6 landscape, 641, 1025, 1441"
+            placeholder="320, 391, Nexus 7 landscape, 391, 641, iPad landscape, 1025, 1441"
           />
         </div>
       </div>

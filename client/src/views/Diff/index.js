@@ -5,7 +5,7 @@ import DiffPreview from './DiffPreview';
 import { requestDiff } from '../../store/diff/actions';
 import './index.css';
 
-class Diff extends React.Component {
+class Diff extends React.PureComponent {
     render() {
         const { results, isFetching, hasError, errorMessage } = this.props;
         return (

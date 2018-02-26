@@ -18,6 +18,7 @@
     grid-row: 1 / 2;
     justify-self: center;
     align-self: center;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
 }
 
 .diff-detail__settings p {
