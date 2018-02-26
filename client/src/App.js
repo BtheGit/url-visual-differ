@@ -4,7 +4,6 @@ import { Switch, Route } from 'react-router-dom';
 import Diff from './views/Diff';
 import DiffDetail from './views/DiffDetail';
 import NotFound from './views/NotFound';
-import './App.css';
 
 class App extends React.Component {
   render() {
