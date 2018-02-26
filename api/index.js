@@ -40,9 +40,8 @@ router.post('/diff', async (req,res) => {
         res.send(diffResults)
     }
     catch(err) {
-        console.log(err)
         // Since this is for technical use, we'll send back the unrefactored error messages
-        res.send({err})
+        res.send({err: err.message})
     }
 })
 

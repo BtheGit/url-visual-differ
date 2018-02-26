@@ -8,7 +8,7 @@ const initialState = {
     results: null,
     isFetching: false,
     hasError: false,
-    error: null
+    errorMessage: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -27,7 +27,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 hasError: action.status,
-                error: action.error
+                errorMessage: action.error
             }
         default:
             return state;

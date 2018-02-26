@@ -5,7 +5,7 @@ import ErrorPage from '../../components/ErrorPage';
 import './DiffPreview.css';
 
 // Change this to conditionally render four different screens (loading, error, cards, initialstate)
-const DiffPreview = ({ results, isFetching, hasError }) => {
+const DiffPreview = ({ results, isFetching, hasError, errorMessage }) => {
     const stateClass = isFetching ? 'loading' : hasError ? 'error' : results ? 'results' : 'initial';
     return (
         <div className={`diff-preview ${stateClass}`}>
@@ -13,7 +13,7 @@ const DiffPreview = ({ results, isFetching, hasError }) => {
                 isFetching 
                     ? <LoadingSpinner />
                     : hasError
-                        ? <ErrorPage />
+                        ? <ErrorPage errorMessage={errorMessage}/>
                         : results
                             ? <ResultsCards results={results} />
                             : <div>Enter details to run diffing program</div>

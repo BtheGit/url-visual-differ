@@ -1,9 +1,9 @@
 import React from 'react';
 import './ErrorPage.css';
 
-const ErrorPage = () => (
+const ErrorPage = ({errorMessage}) => (
     <div>
-        Error ErrorPage
+        {errorMessage}
     </div>
 )
 
