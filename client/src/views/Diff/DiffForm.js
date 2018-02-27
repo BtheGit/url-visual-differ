@@ -72,7 +72,8 @@ const DiffForm = ({ handleSubmit, reset }) => (
 )
 
 const WrappedDiffForm = reduxForm({
-    form: 'diff'
+    form: 'diff',
+    destroyOnUnmount: false
 })(DiffForm)
 
 export default WrappedDiffForm;
