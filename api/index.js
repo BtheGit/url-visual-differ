@@ -45,4 +45,19 @@ router.post('/diff', async (req,res) => {
     }
 })
 
+router.post('/smoketest', async (req, res) => {
+    let userData = req.body;
+    res.setHeader('Content-Type', 'application/json');
+
+    try {
+        const smoketestResults = await smoketestPages();
+        console.log(smoketestResults);
+        res.send(smoketestResults);
+    }
+    catch(err) {
+        console.log(err)
+        res.send({err: err.message})
+    }
+})
+
 module.exports = router;
