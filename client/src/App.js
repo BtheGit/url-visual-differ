@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Diff from './views/Diff';
 import DiffDetail from './views/DiffDetail';
+import SmokeTest from './views/SmokeTest';
 import NotFound from './views/NotFound';
 import ScrollReset from './components/ScrollReset';
 
@@ -14,6 +15,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Diff} />
           <Route path="/details/:id" component={DiffDetail} />
+          <Route path="/smoketest" component={SmokeTest} />
           <Route path="*" component={NotFound} />
         </Switch>
       </React.Fragment>
