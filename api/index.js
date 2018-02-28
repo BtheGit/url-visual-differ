@@ -45,10 +45,10 @@ router.post('/diff', async (req,res) => {
     }
 })
 
-router.post('/smoketest', async (req, res) => {
+router.get('/smoketest', async (req, res) => {
     let userData = req.body;
     res.setHeader('Content-Type', 'application/json');
-
+    console.log(req.body)
     try {
         const smoketestResults = await smoketestPages();
         console.log(smoketestResults);

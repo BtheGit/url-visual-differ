@@ -1,13 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { executeSmoketest } from '../../store/smoketest/actions';
 
 class SmokeTest extends React.PureComponent {
     render() {
         return(
             <div>
-                SmokeTest
+                <button onClick={this.props.executeSmoketest}>Start Smoketest</button>
             </div>
         )
     }
 }
 
-export default SmokeTest;
+const MapDispatchToProps = {
+    executeSmoketest
+}
+
+export default connect(null, MapDispatchToProps)(SmokeTest);
