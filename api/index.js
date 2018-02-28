@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const diffPage = require('../lib/diff');
+const initializeSmoketest = require('../lib/smoketest');
 const definedDevices = require('puppeteer/DeviceDescriptors');
 
 
@@ -48,10 +49,9 @@ router.post('/diff', async (req,res) => {
 router.get('/smoketest', async (req, res) => {
     let userData = req.body;
     res.setHeader('Content-Type', 'application/json');
-    console.log(req.body)
     try {
-        const smoketestResults = await smoketestPages();
-        console.log(smoketestResults);
+        const smoketestResults = await initializeSmoketest();
+        console.log({smoketestResults});
         res.send(smoketestResults);
     }
     catch(err) {

@@ -5,7 +5,6 @@ import {
  
 
 export const executeSmoketest = () => dispatch => {
-    console.log(dispatch)
     fetch('/api/smoketest', {
         method: 'GET'
     })
