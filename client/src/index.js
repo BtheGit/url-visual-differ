@@ -37,14 +37,35 @@ const saveFormStateToSessionStorage = () => {
     saveStatetoSessionStorage(filteredState);
 }
 
+// This will only work when the number of images is lower since session storage
+// maxes out at 10MB.
+const saveAllStateToSessionStorage = store => {
+    const state = store.getState();
+    console.log(state)
+    saveStatetoSessionStorage(state);
+}
+
+const windowUnloadHandler = () => {
+    saveAllStateToSessionStorage(store);
+    window.removeEventListener('beforeunload', windowUnloadHandler);
+}
+
 store.subscribe(saveFormStateToSessionStorage);
 
-const AppTree = () => (
-    <Provider store={ store }>
-        <ConnectedRouter history={ history }>
-            <App />
-        </ConnectedRouter>
-    </Provider>
-)
+class AppTree extends React.Component {
+    componentDidMount() {
+        window.addEventListener('beforeunload', windowUnloadHandler);
+    }
+
+    render() {
+        return (
+            <Provider store={ store }>
+                <ConnectedRouter history={ history }>
+                    <App />
+                </ConnectedRouter>
+            </Provider>
+        )
+    }
+} 
 
 ReactDOM.render(<AppTree />, document.getElementById('root'));
